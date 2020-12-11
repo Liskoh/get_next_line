@@ -52,7 +52,8 @@ static int			ft_get_state(char **current, char **line, int read_len)
 	}
 	else
 	{
-		*line = ft_strdup(*current);
+		if (!(*line = ft_strdup(*current)))
+			return (ft_try_free(current));
 		ft_try_free(current);
 		if (read_len == END_OF_FILE)
 			return (END_OF_FILE);
